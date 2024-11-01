@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+//import { Input } from "@/components/ui/input"
 import { Banana, Rocket, Users, Brain, FileText, Coins, ChevronUp, DollarSign } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
