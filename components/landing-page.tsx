@@ -62,9 +62,11 @@ export function LandingPageComponent() {
     })
   }
 
-  const onPieEnter = (_, index) => {
-    setActiveIndex(index)
+  const onPieEnter = (_: unknown, index: number) => {
+    setActiveIndex(index);
   }
+  
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800 overflow-hidden">
