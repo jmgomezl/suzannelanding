@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Image}  from 'next/image';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Banana, Rocket, Users, Brain, FileText, Coins, ChevronUp, DollarSign } from "lucide-react"
