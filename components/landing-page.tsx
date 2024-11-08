@@ -26,20 +26,23 @@ export function LandingPageComponent() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const tokenAllocationData = [
-    { name: 'Presale', value: 31000000, percentage: 40, color: '#FFD700' },
-    { name: 'DEX Liquidity', value: 21000000, percentage: 20, color: '#C0C0C0' },
-    { name: 'Long-Term Maintenance', value: 15750000, percentage: 15, color: '#CD7F32' },
-    { name: 'Influencers and Collaborators', value: 8400000, percentage: 8, color: '#90EE90' },
-    { name: 'Community Rewards', value: 10500000, percentage: 10, color: '#4169E1' },
-    { name: 'Reserve Funds', value: 7350000, percentage: 7, color: '#FF6347' }
-  ]
+  { name: "Presale", percentage: 14.4, value: 30250000, color: "#ff6384" },
+  { name: "DEX Liquidity", percentage: 20, value: 42000000, color: "#36a2eb" },
+  { name: "Development Team", percentage: 15, value: 31500000, color: "#ffcd56" },
+  { name: "Influencers and Collaborators", percentage: 8, value: 16800000, color: "#4bc0c0" },
+  { name: "Community Rewards", percentage: 10, value: 21000000, color: "#9966ff" },
+  { name: "Reserve Funds", percentage: 7, value: 14700000, color: "#ff9f40" },
+  { name: "Future Rollup Token (SuzanneX)", percentage: 25.6, value: 53250000, color: "#ff6384" },
+];
+
 
   const presaleData = [
-    { phase: 'Phase 0: The Early Bird Stage', tokens: '3,500,000', price: '$0.01', raised: '$35,000' },
-    { phase: 'Phase 1: The Genesis Stage', tokens: '16,500,000', price: '$0.05', raised: '$825,000' },
-    { phase: 'Phase 2: The Expansion Phase', tokens: '9,000,000', price: '$0.07', raised: '$630,000' },
-    { phase: 'Phase 3: The Growth Phase', tokens: '2,000,000', price: '$0.08', raised: '$160,000' },
-  ]
+  { phase: 'Phase 0: Early Bird Stage', tokens: '3,500,000', price: '$0.01', raised: '$35,000' },
+  { phase: 'Phase 1: Genesis Stage', tokens: '16,500,000', price: '$0.05', raised: '$825,000' },
+  { phase: 'Phase 2: Expansion Phase', tokens: '9,000,000', price: '$0.07', raised: '$630,000' },
+  { phase: 'Phase 3: Growth Phase', tokens: '1,250,000', price: '$0.08', raised: '$100,000' },
+];
+
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -377,63 +380,65 @@ export function LandingPageComponent() {
         </motion.section>
 
         <motion.section 
-          id="tokenomics"
-          className="bg-white rounded-xl p-8 space-y-4 shadow-md"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold flex items-center text-gray-800"><Coins className="mr-2" /> Tokenomics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Total Supply</h3>
-              <p className="text-xl text-gray-700">105,000,000 SUZANNE</p>
-              <h3 className="text-2xl font-bold text-gray-800 mt-6 mb-4">Token Allocation</h3>
-              <ul className="list-disc list-inside text-xl text-gray-700">
-                {tokenAllocationData.map((item, index) => (
-                  <li key={index} className="flex items-center mb-2">
-                    <span className="w-4 h-4 mr-2 rounded-full" style={{ backgroundColor: item.color }}></span>
-                    {item.name}: {item.percentage}% ({item.value.toLocaleString()} tokens)
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="h-96">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={tokenAllocationData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    paddingAngle={5}
-                    dataKey="value"
-                    onMouseEnter={onPieEnter}
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    labelLine={false}
-                  >
-                    {tokenAllocationData.map((entry, index) => (
-                      <Cell 
-                        key={`cell-${index}`} 
-                        fill={entry.color}
-                        stroke={index === activeIndex ? '#fff' : 'none'}
-                        strokeWidth={index === activeIndex ? 2 : 0}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    formatter={(value, name, props) => [`${props.payload.percentage}% (${value.toLocaleString()} tokens)`, name]}
-                    contentStyle={{ background: 'rgba(255, 255, 255, 0.95)', borderRadius: '8px', border: 'none' }}
-                  />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </motion.section>
+  id="tokenomics"
+  className="bg-white rounded-xl p-8 space-y-4 shadow-md"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  <h2 className="text-4xl font-bold flex items-center text-gray-800">
+    <Coins className="mr-2" /> Tokenomics
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+    <div>
+      <h3 className="text-2xl font-bold text-gray-800 mb-4">Total Supply</h3>
+      <p className="text-xl text-gray-700">210,000,000 SUZANNE</p>
+      <h3 className="text-2xl font-bold text-gray-800 mt-6 mb-4">Token Allocation</h3>
+      <ul className="list-disc list-inside text-xl text-gray-700">
+        {tokenAllocationData.map((item, index) => (
+          <li key={index} className="flex items-center mb-2">
+            <span className="w-4 h-4 mr-2 rounded-full" style={{ backgroundColor: item.color }}></span>
+            {item.name}: {item.percentage}% ({item.value.toLocaleString()} tokens)
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className="h-96">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={tokenAllocationData}
+            cx="50%"
+            cy="50%"
+            innerRadius={60}
+            outerRadius={80}
+            fill="#8884d8"
+            paddingAngle={5}
+            dataKey="value"
+            onMouseEnter={onPieEnter}
+            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`}
+            labelLine={false}
+          >
+            {tokenAllocationData.map((entry, index) => (
+              <Cell 
+                key={`cell-${index}`} 
+                fill={entry.color}
+                stroke={index === activeIndex ? '#fff' : 'none'}
+                strokeWidth={index === activeIndex ? 2 : 0}
+              />
+            ))}
+          </Pie>
+          <Tooltip 
+            formatter={(value, name, props) => [`${props.payload.percentage}% (${value.toLocaleString()} tokens)`, name]}
+            contentStyle={{ background: 'rgba(255, 255, 255, 0.95)', borderRadius: '8px', border: 'none' }}
+          />
+          <Legend />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+</motion.section>
       </main>
 
       <footer className="bg-gray-800 text-white py-8 relative">
